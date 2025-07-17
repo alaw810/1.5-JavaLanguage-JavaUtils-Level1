@@ -1,8 +1,12 @@
-README - Exercise 1
+README - Java Utils Exercises
 
 📄 Description:
-This program lists the contents of a directory in alphabetical order.
+Exercise 1: This program lists the contents of a directory in alphabetical order.
 It receives the directory path as a command-line argument.
+
+Exercise 2: This program recursively lists all files and subdirectories
+from a given directory, indicating whether each item is a file or directory,
+and showing its last modified date.
 
 ---
 
@@ -11,25 +15,30 @@ It receives the directory path as a command-line argument.
 From the root of the project, run the following command:
 
     javac -d out src/com/alaw810/ex1/*.java
+    javac -d out src/com/alaw810/ex2/*.java
 
-This command compiles all .java files and stores the .class files in the "out" folder.
+These commands compile all .java files and store the .class files in the "out" folder.
 
 ---
 
 ▶️ Execution:
 
-To run the program, use the command:
+To run the programs, use the commands:
 
     java -cp out com.alaw810.ex1.MainEx1 <directory_path>
+    java -cp out com.alaw810.ex2.MainEx2 <directory_path>
 
-Example:
+Examples:
 
     java -cp out com.alaw810.ex1.MainEx1 ./src
+    java -cp out com.alaw810.ex2.MainEx2 ./src
 
-This will list the contents of the "./src" directory in alphabetical order.
+The first example lists the contents of the "./src" directory.
+The second example recursively lists all contents of "./src" with type and last modified date.
 
 ---
 
 📌 Notes:
 - Use relative paths when possible.
 - If the provided path is not a valid directory, an error message will be displayed.
+- The listing in Exercise 2 is sorted alphabetically within each directory level.

@@ -3,31 +3,24 @@ package com.alaw810.ex1;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.Arrays;
 
 public class DirectoryLister {
-    private String path;
 
-    public DirectoryLister(String path) {
-        this.path = path;
-    }
-
-    public ArrayList<String> listDirectory() throws IOException {
-        File directory = new File(this.path);
+    public static ArrayList<String> listDirectory(String path) throws IOException {
+        File directory = new File(path);
 
         if (!directory.isDirectory()) {
             throw new IOException("The path provided is not a directory.");
         }
 
-        String[] rawList = directory.list();
-        if (rawList == null) {
+        String[] files = directory.list();
+        if (files == null) {
             throw new IOException("The directory could not be accessed.");
         }
 
-        ArrayList<String> files = new ArrayList<>(List.of(rawList));
-        Collections.sort(files);
-        return files;
+        Arrays.sort(files, String.CASE_INSENSITIVE_ORDER);
+        return new ArrayList<>(Arrays.asList(files));
     }
 
 
